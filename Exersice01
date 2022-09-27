@@ -1,0 +1,28 @@
+package basicSyntax.exercise;
+
+import java.util.Scanner;
+
+public class PadawanEquipment {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        double money = Double.parseDouble(scan.nextLine());
+        int students = Integer.parseInt(scan.nextLine());
+        double priceLight = Double.parseDouble(scan.nextLine());
+        double priceRobers = Double.parseDouble(scan.nextLine());
+        double priceBelts = Double.parseDouble(scan.nextLine());
+        int freeBelts=students/6;
+        double qtyLights=Math.ceil(students+(students*0.1));
+        double sumLight=qtyLights*priceLight;
+        double sumRobers=students*priceRobers;
+        double sumBelts=(students-freeBelts)*priceBelts;
+        double allSum=sumLight+sumBelts+sumRobers;
+        if (allSum<=money){
+            System.out.printf("The money is enough - it would cost %.2flv.",allSum);
+        }
+        else {
+            double diff = allSum-money;
+            System.out.printf("George Lucas will need %.2flv more.", diff);
+        }
+
+    }
+}
